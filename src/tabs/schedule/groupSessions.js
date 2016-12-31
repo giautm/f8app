@@ -19,11 +19,29 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+import type {Session} from '../../reducers/sessions';
 
-export default getBabelRelayPlugin(schema.data);
+const formatTime = require('./formatTime');
+
+export type SessionsListData = {
+  [time: string]: {
+    [sessionID: string]: Session;
+  };
+};
+
+function groupSessions(sessions: Array<Session>): SessionsListData {
+  var data = {};
+  sessions.forEach((session) => {
+    var timeSectionKey = session.allDay ? 'All Day' : formatTime(session.startTime);
+    data[timeSectionKey] = data[timeSectionKey] || {};
+    data[timeSectionKey][session.id] = session;
+  });
+
+  return data;
+}
+
+export default groupSessions;

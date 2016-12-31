@@ -19,11 +19,26 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
 
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+type State = Array<string>;
+type Action = { type: string; list: Array<any>; };
 
-export default getBabelRelayPlugin(schema.data);
+function topics(state: State = [], action: Action): State {
+  if (action.type === 'LOADED_SESSIONS') {
+    var topicsMap = Object.create(null);
+    action.list.forEach((session) => {
+      var tags = session.get('tags') || [];
+      tags.forEach((tag) => {
+        topicsMap[tag] = true;
+      });
+    });
+    return Object.keys(topicsMap).sort();
+  }
+  return state;
+}
+
+export default topics;

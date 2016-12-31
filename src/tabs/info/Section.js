@@ -19,11 +19,52 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+import React from 'react';
+var StyleSheet = require('StyleSheet');
+var { Text } = require('F8Text');
+var View = require('View');
 
-export default getBabelRelayPlugin(schema.data);
+class Section extends React.Component {
+  props: {
+    title: string;
+    children?: any;
+    style?: any;
+  };
+
+  render() {
+    return (
+      <View style={[styles.container, this.props.style]}>
+        <View style={styles.header}>
+          <Text style={styles.title}>
+            {this.props.title}
+          </Text>
+        </View>
+        {this.props.children}
+      </View>
+    );
+  }
+}
+
+var styles = StyleSheet.create({
+  container: {
+    paddingTop: 60,
+    paddingBottom: 0,
+    backgroundColor: 'white',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 30,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+});
+
+export default Section;

@@ -19,11 +19,25 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @providesModule findSessionByURI
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+import type { Session } from '../../reducers/sessions';
 
-export default getBabelRelayPlugin(schema.data);
+function findSessionByURI(sessions: Array<Session>, uri: ?string): ?Session {
+  if (!uri) {
+    return null;
+  }
+  var slug = uri.replace('f8://', '');
+  for (var i = 0; i < sessions.length; i++) {
+    var session = sessions[i];
+    if (session.slug === slug || session.id === slug) {
+      return session;
+    }
+  }
+  return null;
+}
+
+export default findSessionByURI;

@@ -19,11 +19,34 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+const React = require('react');
+const {
+  Image,
+  StyleSheet,
+} = require('react-native');
 
-export default getBabelRelayPlugin(schema.data);
+
+class ProfileButton extends React.Component {
+  render() {
+    return (
+      <Image
+        source={{uri: `http://graph.facebook.com/${this.props.user.id}/picture`}}
+        style={styles.profilePic}
+      />
+    );
+  }
+}
+
+var styles = StyleSheet.create({
+  profilePic: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+  },
+});
+
+export default ProfileButton;

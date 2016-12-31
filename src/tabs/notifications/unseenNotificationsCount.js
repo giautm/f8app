@@ -19,11 +19,21 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+var allNotifications = require('./allNotifications');
+var { createSelector } = require('reselect');
 
-export default getBabelRelayPlugin(schema.data);
+import type {Notification, SeenNotifications} from '../../reducers/notifications';
+
+function unseenNotificationsCount(notifications: Array<Notification>, seen: SeenNotifications): number {
+  return notifications.filter((notification) => !seen[notification.id]).length;
+}
+
+export default createSelector(
+  allNotifications,
+  (store) => store.notifications.seen,
+  unseenNotificationsCount,
+);

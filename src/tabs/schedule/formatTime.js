@@ -19,11 +19,21 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+function formatTime(unix: number): string {
+  var date = new Date(unix);
+  var hours = date.getUTCHours();
+  var minutes = date.getUTCMinutes();
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  var strTime = hours + ':' + minutes;
 
-export default getBabelRelayPlugin(schema.data);
+  return strTime + ' ' + ampm;
+}
+
+export default formatTime;

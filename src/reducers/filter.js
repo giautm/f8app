@@ -19,11 +19,33 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
 
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+import type {Action} from '../actions/types';
 
-export default getBabelRelayPlugin(schema.data);
+export type FriendFilter = {
+  id: string;
+  name: string;
+  schedule: {[key: string]: boolean};
+};
+
+export type TopicsFilter = {
+  [key: string]: boolean;
+};
+
+type State = TopicsFilter;
+
+function filter(state: State = {}, action: Action): State {
+  if (action.type === 'APPLY_TOPICS_FILTER') {
+    return action.topics;
+  }
+  if (action.type === 'CLEAR_FILTER') {
+    return {};
+  }
+  return state;
+}
+
+export default filter;

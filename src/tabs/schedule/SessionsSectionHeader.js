@@ -19,11 +19,41 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+var F8Colors = require('F8Colors');
+import LinearGradient from 'react-native-linear-gradient';
+import React from 'react';
+var StyleSheet = require('StyleSheet');
+var { Text } = require('F8Text');
 
-export default getBabelRelayPlugin(schema.data);
+class SessionsSectionHeader extends React.Component {
+  props: {
+    title: string;
+  };
+
+  render() {
+    return (
+      <LinearGradient colors={['#F4F6F7', '#EBEEF1']} style={styles.header}>
+        <Text style={styles.label}>
+          {this.props.title}
+        </Text>
+      </LinearGradient>
+    );
+  }
+}
+
+var styles = StyleSheet.create({
+  header: {
+    height: 32,
+    justifyContent: 'center',
+    paddingLeft: 17,
+  },
+  label: {
+    color: F8Colors.lightText,
+  },
+});
+
+export default SessionsSectionHeader;

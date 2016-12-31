@@ -19,11 +19,30 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
-
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
+var { createSelector } = require('reselect');
 
-export default getBabelRelayPlugin(schema.data);
+import type {Notification} from '../../reducers/notifications';
+
+// Merges lists of notifications from server and notifications
+// received via push and makes sure there is no duplicates.
+function mergeAndSortByTime(server: Array<Notification>, push: Array<Notification>): Array<Notification> {
+  var uniquePush = push.filter((pushNotification) => {
+    var existsOnServer = server.find(
+      (serverNotification) => serverNotification.text === pushNotification.text
+    );
+    return !existsOnServer;
+  });
+
+  var all = [].concat(server, uniquePush);
+  return all.sort((a, b) => b.time - a.time);
+}
+
+export default createSelector(
+  (store) => store.notifications.server,
+  (store) => store.notifications.push,
+  mergeAndSortByTime
+);

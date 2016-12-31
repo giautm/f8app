@@ -18,12 +18,11 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
- *
  */
 
 'use strict';
 
-const getBabelRelayPlugin = require('babel-relay-plugin');
-const schema = require('./schema.json');
-
-export default getBabelRelayPlugin(schema.data);
+export default store => next => action =>
+  Array.isArray(action)
+    ? action.map(next)
+    : next(action);
