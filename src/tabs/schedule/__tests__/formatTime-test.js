@@ -25,7 +25,7 @@
 'use strict';
 
 jest.dontMock('../formatTime');
-const formatTime = require('../formatTime');
+import formatTime from '../formatTime';
 
 describe('formatTime', () => {
   it('formats time', () => {

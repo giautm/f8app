@@ -24,8 +24,9 @@
 
 'use strict';
 
-const Parse = require('parse/react-native');
-const InteractionManager = require('InteractionManager');
+import {
+  InteractionManager,
+} from 'react-native';
 
 import type { Action } from './types';
 

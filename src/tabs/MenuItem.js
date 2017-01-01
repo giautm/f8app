@@ -24,13 +24,15 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
 import React from 'react';
-var View = require('View');
-var { Text } = require('F8Text');
-var F8Touchable = require('F8Touchable');
-var Image = require('Image');
-var StyleSheet = require('StyleSheet');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import F8Touchable from 'F8Touchable';
 
 
 class MenuItem extends React.Component {

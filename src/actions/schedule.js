@@ -23,16 +23,17 @@
  */
 
 'use strict';
+import {
+  ActionSheetIOS,
+  Alert,
+  InteractionManager,
+  Platform,
+} from 'react-native';
 
-const Parse = require('parse/react-native');
-const {AppEventsLogger} = require('react-native-fbsdk');
-const Platform = require('Platform');
-const InteractionManager = require('InteractionManager');
-const ActionSheetIOS = require('ActionSheetIOS');
-const Alert = require('Alert');
-const Share = require('react-native-share');
+import {AppEventsLogger} from 'react-native-fbsdk';
+
 const Agenda = Parse.Object.extend('Agenda');
-const {currentInstallation, updateInstallation} = require('./installation');
+import {currentInstallation, updateInstallation} from './installation';
 
 import type { ThunkAction, PromiseAction, Dispatch } from './types';
 import type { Session } from '../reducers/sessions';

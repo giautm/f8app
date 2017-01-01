@@ -26,8 +26,8 @@
 
 jest.autoMockOff();
 
-const Parse = require('parse');
-const maps = require('../maps');
+
+
 
 describe('maps reducer', () => {
 

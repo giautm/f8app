@@ -24,12 +24,14 @@
 
 'use strict';
 
-const Platform = require('Platform');
-const VibrationIOS = require('VibrationIOS');
-const { updateInstallation } = require('./installation');
-const { loadNotifications } = require('./parse');
-const { loadSurveys } = require('./surveys');
-const { switchTab } = require('./navigation');
+import {
+  Platform,
+  VibrationIOS,
+} from 'react-native';
+import { updateInstallation } from './installation';
+import { loadNotifications } from './parse';
+import { loadSurveys } from './surveys';
+import { switchTab } from './navigation';
 
 import type { Action, ThunkAction } from './types';
 

@@ -24,9 +24,11 @@
 'use strict';
 
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
+import {
+  StyleSheet,
+  View,
+} from 'react-native';
+import { Text } from 'F8Text';
 
 class Section extends React.Component {
   props: {

@@ -23,13 +23,15 @@
  */
 'use strict';
 
-var F8Button = require('F8Button');
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var { Heading1, Paragraph } = require('F8Text');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Button from 'F8Button';
+import F8Colors from 'F8Colors';
+import { Heading1, Paragraph } from 'F8Text';
 
 class PushNUXModal extends React.Component {
   props: {

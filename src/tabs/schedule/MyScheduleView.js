@@ -23,33 +23,35 @@
  */
 'use strict';
 
-var EmptySchedule = require('./EmptySchedule');
-var F8Button = require('F8Button');
-var FilterSessions = require('./filterSessions');
-var ListContainer = require('ListContainer');
-var LoginButton = require('../../common/LoginButton');
-var Navigator = require('Navigator');
-var ProfilePicture = require('../../common/ProfilePicture');
 import React from 'react';
-var PureListView = require('../../common/PureListView');
-var ScheduleListView = require('./ScheduleListView');
-var FriendsListView = require('./FriendsListView');
+import {
+  Navigator,
+} from 'react-native';
+import EmptySchedule from './EmptySchedule';
+import F8Button from 'F8Button';
+import FilterSessions from './filterSessions';
+import ListContainer from 'ListContainer';
+import LoginButton from '../../common/LoginButton';
+import ProfilePicture from '../../common/ProfilePicture';
+import PureListView from '../../common/PureListView';
+import ScheduleListView from './ScheduleListView';
+import FriendsListView from './FriendsListView';
 
-var { connect } = require('react-redux');
+import { connect } from 'react-redux';
 
-var {
+import {
   logOutWithPrompt,
   switchTab,
   switchDay,
   loadFriendsSchedules,
-} = require('../../actions');
+} from '../../actions';
 
 import type {Session} from '../../reducers/sessions';
 import type {FriendsSchedule} from '../../reducers/friendsSchedules';
 import type {State as User} from '../../reducers/user';
 import type {State as Schedule} from '../../reducers/schedule';
 
-var { createSelector } = require('reselect');
+import { createSelector } from 'reselect';
 
 
 type Props = {

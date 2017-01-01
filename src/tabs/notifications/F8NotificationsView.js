@@ -24,28 +24,30 @@
  */
 'use strict';
 
-var EmptySchedule = require('../schedule/EmptySchedule');
-var Linking = require('Linking');
-var PushNUXModal = require('./PushNUXModal');
-var PureListView = require('../../common/PureListView');
 import React from 'react';
-var Platform = require('Platform');
-var ActionSheetIOS = require('ActionSheetIOS');
-var ListContainer = require('ListContainer');
-var NotificationCell = require('./NotificationCell');
-var RateSessionsCell = require('./RateSessionsCell');
-var allNotifications = require('./allNotifications');
-var View = require('View');
-var findSessionByURI = require('findSessionByURI');
-var { connect } = require('react-redux');
-var {
+import {
+  ActionSheetIOS,
+  Linking,
+  Platform,
+  View,
+} from 'react-native';
+import ListContainer from 'ListContainer';
+import EmptySchedule from '../schedule/EmptySchedule';
+import PureListView from '../../common/PureListView';
+import PushNUXModal from './PushNUXModal';
+import NotificationCell from './NotificationCell';
+import RateSessionsCell from './RateSessionsCell';
+import allNotifications from './allNotifications';
+import findSessionByURI from 'findSessionByURI';
+import { connect } from 'react-redux';
+import {
   turnOnPushNotifications,
   skipPushNotifications,
   TEST_MENU,
-} = require('../../actions');
-var {testMenuEnabled, version} = require('../../env');
+} from '../../actions';
+import {testMenuEnabled, version} from '../../env';
 
-var { createSelector } = require('reselect');
+import { createSelector } from 'reselect';
 
 const data = createSelector(
   allNotifications,

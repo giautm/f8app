@@ -4,7 +4,7 @@
 
 'use strict';
 
-const createParseReducer = require('./createParseReducer');
+
 
 export type Map = {
   id: string;

@@ -24,14 +24,16 @@
  */
 'use strict';
 
-var CommonQuestions = require('./CommonQuestions');
-var LinksList = require('./LinksList');
-var ListContainer = require('ListContainer');
-var PureListView = require('../../common/PureListView');
 import React from 'react';
-var Relay = require('react-relay');
-var View = require('View');
-var WiFiDetails = require('./WiFiDetails');
+import {
+  View,
+} from 'react-native';
+import ListContainer from 'ListContainer';
+import CommonQuestions from './CommonQuestions';
+import LinksList from './LinksList';
+import PureListView from '../../common/PureListView';
+import Relay from 'react-relay';
+import WiFiDetails from './WiFiDetails';
 
 
 const POLICIES_LINKS = [{

@@ -25,12 +25,12 @@
 'use strict';
 
 import React from 'react';
-var {
+import {
   StyleSheet,
   View,
   TouchableOpacity,
-} = require('react-native');
-var { Text } = require('F8Text');
+} from 'react-native';
+import { Text } from 'F8Text';
 
 class TopicItem extends React.Component {
   props: {

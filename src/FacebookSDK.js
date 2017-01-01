@@ -12,7 +12,7 @@ import {
 } from 'react-native-fbsdk';
 
 const emptyFunction = () => {};
-const mapObject = require('fbjs/lib/mapObject');
+import mapObject from 'fbjs/lib/mapObject';
 
 type AuthResponse = {
   userID: string;

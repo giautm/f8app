@@ -23,13 +23,15 @@
  */
 'use strict';
 
-var EmptySchedule = require('./EmptySchedule');
-var Navigator = require('Navigator');
 import React from 'react';
-var SessionsSectionHeader = require('./SessionsSectionHeader');
-var InviteFriendsButton = require('./InviteFriendsButton');
-var PureListView = require('../../common/PureListView');
-var FriendCell = require('./FriendCell');
+import {
+  Navigator,
+} from 'react-native';
+import EmptySchedule from './EmptySchedule';
+import SessionsSectionHeader from './SessionsSectionHeader';
+import InviteFriendsButton from './InviteFriendsButton';
+import PureListView from '../../common/PureListView';
+import FriendCell from './FriendCell';
 
 type Friend = any;
 

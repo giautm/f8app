@@ -72,7 +72,7 @@ class RatingScreen extends React.Component {
     }
   }
 
-  renderCard = (index: number) => : ReactElement {
+  renderCard = (index: number): ReactElement => {
     const survey = this.props.surveys[index];
     const session = this.props.sessions.find((s) => s.id === survey.sessionId);
 

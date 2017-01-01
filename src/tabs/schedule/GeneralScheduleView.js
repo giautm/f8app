@@ -23,24 +23,26 @@
  */
 'use strict';
 
-var EmptySchedule = require('./EmptySchedule');
-var FilterHeader = require('./FilterHeader');
-var FilterSessions = require('./filterSessions');
-var ListContainer = require('ListContainer');
-var Navigator = require('Navigator');
 import React from 'react';
-var Platform = require('Platform');
-var F8DrawerLayout = require('F8DrawerLayout');
-var ScheduleListView = require('./ScheduleListView');
-var FilterScreen = require('../../filter/FilterScreen');
+import {
+  Navigator,
+  Platform,
+} from 'react-native';
+import EmptySchedule from './EmptySchedule';
+import FilterHeader from './FilterHeader';
+import FilterSessions from './filterSessions';
+import ListContainer from 'ListContainer';
+import F8DrawerLayout from 'F8DrawerLayout';
+import ScheduleListView from './ScheduleListView';
+import FilterScreen from '../../filter/FilterScreen';
 
-var { connect } = require('react-redux');
-var {switchDay} = require('../../actions');
+import { connect } from 'react-redux';
+import {switchDay} from '../../actions';
 
 import type {Session} from '../../reducers/sessions';
 
 // TODO: Move from reselect to memoize?
-var { createSelector } = require('reselect');
+import { createSelector } from 'reselect';
 
 const data = createSelector(
   (store) => store.sessions,

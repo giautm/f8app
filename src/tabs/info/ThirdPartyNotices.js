@@ -23,12 +23,14 @@
  */
 'use strict';
 
-var F8Header = require('F8Header');
-var InteractionManager = require('InteractionManager');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var WebView = require('WebView');
+import {
+  InteractionManager,
+  StyleSheet,
+  View,
+  WebView,
+} from 'react-native';
+import F8Header from 'F8Header';
 
 class ThirdPartyNotices extends React.Component {
   render() {

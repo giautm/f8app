@@ -23,11 +23,13 @@
  */
 'use strict';
 
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Paragraph, Heading1 } = require('F8Text');
-var View = require('View');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { Paragraph, Heading1 } from 'F8Text';
 
 class EmptySchedule extends React.Component {
   props: {

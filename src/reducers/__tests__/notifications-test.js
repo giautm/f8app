@@ -24,11 +24,11 @@
 
 'use strict';
 
-const Parse = require('parse');
+
 
 jest.dontMock('../notifications');
 jest.dontMock('crc32');
-const notifications = require('../notifications');
+
 
 const emptyAction: any = {};
 const empty = {server: [], push: [], enabled: null, registered: false, seen: {}};

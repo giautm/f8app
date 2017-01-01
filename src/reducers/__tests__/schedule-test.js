@@ -25,7 +25,7 @@
 'use strict';
 
 jest.dontMock('../schedule');
-const schedule = require('../schedule');
+
 
 describe('schedule reducer', () => {
 

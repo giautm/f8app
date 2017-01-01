@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         overflow: 'visible',
         backgroundColor: 'black',
       },
-    },
+    }),
   },
 });
 

@@ -24,17 +24,19 @@
  */
 'use strict';
 
-var ActionSheetIOS = require('ActionSheetIOS');
-var F8Button = require('F8Button');
-var PureListView = require('../../common/PureListView');
-var Linking = require('Linking');
-var Platform = require('Platform');
-var ListContainer = require('ListContainer');
-var MapView = require('../../common/MapView');
 import React from 'react';
-var StyleSheet = require('F8StyleSheet');
-var View = require('View');
-var { connect } = require('react-redux');
+import {
+  ActionSheetIOS,
+  Linking,
+  Platform,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Button from 'F8Button';
+import PureListView from '../../common/PureListView';
+import ListContainer from 'ListContainer';
+import MapView from '../../common/MapView';
+import { connect } from 'react-redux';
 
 var VENUE_ADDRESS = '2 Marina Blvd, San Francisco, CA 94123';
 

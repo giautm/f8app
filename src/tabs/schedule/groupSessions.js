@@ -25,7 +25,7 @@
 
 import type {Session} from '../../reducers/sessions';
 
-const formatTime = require('./formatTime');
+import formatTime from './formatTime';
 
 export type SessionsListData = {
   [time: string]: {

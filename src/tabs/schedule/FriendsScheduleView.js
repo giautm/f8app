@@ -23,20 +23,22 @@
  */
 'use strict';
 
-var Navigator = require('Navigator');
-var ProfilePicture = require('../../common/ProfilePicture');
 import React from 'react';
-var EmptySchedule = require('./EmptySchedule');
-var FilterSessions = require('./filterSessions');
-var ListContainer = require('ListContainer');
-var ScheduleListView = require('./ScheduleListView');
+import {
+  Navigator,
+} from 'react-native';
+import ProfilePicture from '../../common/ProfilePicture';
+import EmptySchedule from './EmptySchedule';
+import FilterSessions from './filterSessions';
+import ListContainer from 'ListContainer';
+import ScheduleListView from './ScheduleListView';
 
-var { connect } = require('react-redux');
+import { connect } from 'react-redux';
 
 import type {Session} from '../../reducers/sessions';
 import type {FriendsSchedule} from '../../reducers/friendsSchedules';
 
-var { createSelector } = require('reselect');
+import { createSelector } from 'reselect';
 
 type Props = {
   sessions: Array<Session>;
@@ -96,7 +98,7 @@ class FriendsScheduleView extends React.Component {
 
 const data = createSelector(
   (store) => store.sessions,
-  (store, props) => props.friend.schedule,
+  (_, props) => props.friend.schedule,
   (sessions, schedule) => FilterSessions.bySchedule(sessions, schedule),
 );
 

@@ -23,20 +23,22 @@
  */
 'use strict';
 
-var F8Colors = require('F8Colors');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var FriendsUsingApp = require('./FriendsUsingApp');
-var Navigator = require('Navigator');
-var Switch = require('Switch');
-var View = require('View');
-var F8Header = require('F8Header');
-var StatusBar = require('StatusBar');
-var SharingSettingsCommon = require('./SharingSettingsCommon');
+import {
+  Navigator,
+  StatusBar,
+  StyleSheet,
+  Switch,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import F8Header from 'F8Header';
+import { Text } from 'F8Text';
+import FriendsUsingApp from './FriendsUsingApp';
+import SharingSettingsCommon from './SharingSettingsCommon';
 
-var { setSharingEnabled, logOutWithPrompt } = require('../../actions');
-var { connect } = require('react-redux');
+import { setSharingEnabled, logOutWithPrompt } from '../../actions';
+import { connect } from 'react-redux';
 
 import type {State as User} from '../../reducers/user';
 

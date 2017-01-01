@@ -24,7 +24,7 @@
 
 'use strict';
 
-const createParseReducer = require('./createParseReducer');
+
 
 export type Speaker = {
   id: string;

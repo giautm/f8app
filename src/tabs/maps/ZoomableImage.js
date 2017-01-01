@@ -23,11 +23,13 @@
  */
 'use strict';
 
-var Image = require('Image');
 import React from 'react';
-var ScrollView = require('ScrollView');
-var StyleSheet = require('StyleSheet');
-var TouchableWithoutFeedback = require('TouchableWithoutFeedback');
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 class ZoomableImage extends React.Component {
   props: {
@@ -52,7 +54,7 @@ class ZoomableImage extends React.Component {
   render() {
     return (
       <ScrollView
-        ref="zoomable_scroll"
+        ref={(ref) => this.zoomableScroll = ref}
         onScroll={this.onZoomChanged}
         scrollEventThrottle={100}
         scrollsToTop={false}
@@ -75,13 +77,19 @@ class ZoomableImage extends React.Component {
   }
 
   toggleZoom(e: any) {
-    var timestamp = new Date().getTime();
-    if (timestamp - this.state.lastTapTimestamp <= 500) {
-      var {locationX, locationY} = e.nativeEvent;
-      var size = this.state.isZoomed ? {width: 10000, height: 10000} : {width: 0, height: 0};
-      this.refs.zoomable_scroll.scrollResponderZoomTo({x: locationX, y: locationY, ...size});
+    const { state: { lastTapTimestamp, isZoomed }, zoomableScroll } = this;
+    const timestamp = new Date().getTime();
+    if (timestamp - lastTapTimestamp <= 500) {
+      const { locationX, locationY } = e.nativeEvent;
+      const size = isZoomed ? { width: 10000, height: 10000 } : { width: 0, height: 0 };
+
+      zoomableScroll.scrollResponderZoomTo({
+        x: locationX,
+        y: locationY,
+        ...size,
+      });
     }
-    this.setState({lastTapTimestamp: timestamp});
+    this.setState({ lastTapTimestamp: timestamp });
   }
 
   onZoomChanged(e: any) {
@@ -89,7 +97,7 @@ class ZoomableImage extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: Image.resizeMode.contain,

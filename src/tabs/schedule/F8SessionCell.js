@@ -25,17 +25,19 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var F8Touchable = require('F8Touchable');
-var View = require('View');
-var formatDuration = require('./formatDuration');
-var formatTime = require('./formatTime');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import F8Touchable from 'F8Touchable';
+import formatDuration from './formatDuration';
+import formatTime from './formatTime';
 
-var { connect } = require('react-redux');
+import { connect } from 'react-redux';
 
 import type {Session} from '../../reducers/sessions';
 

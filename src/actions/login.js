@@ -24,14 +24,16 @@
 
 'use strict';
 
-const Parse = require('parse/react-native');
-const FacebookSDK = require('FacebookSDK');
-const ActionSheetIOS = require('ActionSheetIOS');
-const {Platform} = require('react-native');
-const Alert = require('Alert');
-const {restoreSchedule, loadFriendsSchedules} = require('./schedule');
-const {updateInstallation} = require('./installation');
-const {loadSurveys} = require('./surveys');
+
+import {
+  ActionSheetIOS,
+  Alert,
+  Platform,
+} from 'react-native';
+
+import {restoreSchedule, loadFriendsSchedules} from './schedule';
+import {updateInstallation} from './installation';
+import {loadSurveys} from './surveys';
 
 import type { Action, ThunkAction } from './types';
 

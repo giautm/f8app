@@ -1,4 +1,4 @@
-/**
+ /**
  * Copyright 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
@@ -23,19 +23,21 @@
  */
 'use strict';
 
-var ItemsWithSeparator = require('../../common/ItemsWithSeparator');
-var LayoutAnimation = require('LayoutAnimation');
 import React from 'react';
-var Section = require('./Section');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var F8Touchable = require('F8Touchable');
-var View = require('View');
+import {
+  LayoutAnimation,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { Text } from 'F8Text';
+import F8Touchable from 'F8Touchable';
+import ItemsWithSeparator from '../../common/ItemsWithSeparator';
+import Section from './Section';
 
 class CommonQuestions extends React.Component {
   render() {
-    let content = this.props.faqs.map(({question, answer}) =>
-      (<Row question={question} answer={answer} key={question} />)
+    let content = this.props.faqs.map(({answer, question}) =>
+      (<Row answer={answer} question={question} key={question} />)
     );
     return (
       <Section title="Common questions">
@@ -96,7 +98,7 @@ class Row extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   separator: {
     marginHorizontal: 20,
   },

@@ -34,9 +34,11 @@ export function colorForTopic(count: number, index: number): string {
   return `hsl(${hue}, 74%, 65%)`;
 }
 
-export const actionText = '#3FB4CF';
-export const inactiveText = '#9B9B9B';
-export const darkText = '#032250';
-export const lightText = '#7F91A7';
-export const cellBorder = '#EEEEEE';
-export const darkBackground = '#183E63';
+export default {
+  actionText: '#3FB4CF',
+  inactiveText: '#9B9B9B',
+  darkText: '#032250',
+  lightText: '#7F91A7',
+  cellBorder: '#EEEEEE',
+  darkBackground: '#183E63',
+};

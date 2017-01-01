@@ -2,16 +2,17 @@
  * @flow
  */
 'use strict';
-
-var LoginButton = require('../common/LoginButton');
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
-var F8Button = require('F8Button');
-var Navigator = require('Navigator');
+import {
+  Navigator,
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import F8Button from 'F8Button';
+import LoginButton from '../common/LoginButton';
 
 class LoginModal extends React.Component {
   props: {

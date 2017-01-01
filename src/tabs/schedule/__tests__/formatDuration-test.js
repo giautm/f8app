@@ -25,7 +25,7 @@
 'use strict';
 
 jest.autoMockOff();
-const formatDuration = require('../formatDuration');
+import formatDuration from '../formatDuration';
 
 describe('formatDuration', () => {
   it('formats duration', () => {

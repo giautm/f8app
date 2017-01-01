@@ -77,7 +77,7 @@ class PureListView extends React.Component {
     }
   };
 
-  renderFooter = () => : ?ReactElement  {
+  renderFooter = (): ?ReactElement => {
     if (this.state.dataSource.getRowCount() === 0) {
       return this.props.renderEmptyList && this.props.renderEmptyList();
     }

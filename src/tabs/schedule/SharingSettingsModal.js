@@ -23,16 +23,18 @@
  */
 'use strict';
 
-var F8Button = require('F8Button');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var Navigator = require('Navigator');
-var FriendsUsingApp = require('./FriendsUsingApp');
-var SharingSettingsCommon = require('./SharingSettingsCommon');
+import {
+  Navigator,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Button from 'F8Button';
+import FriendsUsingApp from './FriendsUsingApp';
+import SharingSettingsCommon from './SharingSettingsCommon';
 
-var { setSharingEnabled } = require('../../actions');
-var { connect } = require('react-redux');
+import { setSharingEnabled } from '../../actions';
+import { connect } from 'react-redux';
 
 class SharingSettingsModal extends React.Component {
   props: {

@@ -24,7 +24,7 @@
 
 'use strict';
 
-const Parse = require('parse/react-native');
+
 
 import type { Action } from './types';
 

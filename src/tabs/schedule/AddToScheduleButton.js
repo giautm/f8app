@@ -24,14 +24,16 @@
 
 'use strict';
 
-var Image = require('Image');
-import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var Animated = require('Animated');
+import {
+  Animated,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { Text } from 'F8Text';
 
 type Props = {
   isAdded: boolean;

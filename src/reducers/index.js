@@ -4,18 +4,18 @@
 
 'use strict';
 
-const { combineReducers } = require('redux');
+import { combineReducers } from 'redux';
 
 export default combineReducers({
-  config: require('./config'),
-  notifications: require('./notifications'),
-  maps: require('./maps'),
-  sessions: require('./sessions'),
-  user: require('./user'),
-  schedule: require('./schedule'),
-  topics: require('./topics'),
-  filter: require('./filter'),
-  navigation: require('./navigation'),
-  friendsSchedules: require('./friendsSchedules'),
-  surveys: require('./surveys'),
+  config: require('./config').default,
+  notifications: require('./notifications').default,
+  maps: require('./maps').default,
+  sessions: require('./sessions').default,
+  user: require('./user').default,
+  schedule: require('./schedule').default,
+  topics: require('./topics').default,
+  filter: require('./filter').default,
+  navigation: require('./navigation').default,
+  friendsSchedules: require('./friendsSchedules').default,
+  surveys: require('./surveys').default,
 });

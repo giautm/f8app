@@ -24,7 +24,7 @@ function TouchableIOS(props: Object): ReactElement {
 
 const touchables = {
   android: TouchableNativeFeedback,
-  ios: F8TouchableIOS,
+  ios: TouchableIOS,
 };
 
 export default touchables[Platform.OS];

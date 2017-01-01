@@ -24,9 +24,9 @@
 'use strict';
 
 import React from 'react';
-var F8Button = require('F8Button');
-var {AppInviteDialog, AppEventsLogger} = require('react-native-fbsdk');
-var { connect } = require('react-redux');
+import F8Button from 'F8Button';
+import {AppInviteDialog, AppEventsLogger} from 'react-native-fbsdk';
+import { connect } from 'react-redux';
 
 class InviteFriendsButton extends React.Component {
   props: {

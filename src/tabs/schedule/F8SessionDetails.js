@@ -25,26 +25,27 @@
 
 'use strict';
 
-var Animated = require('Animated');
-var F8Colors = require('F8Colors');
-var F8FriendGoing = require('F8FriendGoing');
-var F8SpeakerProfile = require('F8SpeakerProfile');
-var Image = require('Image');
-import LinearGradient from 'react-native-linear-gradient';
-var MapView = require('../../common/MapView');
-var PixelRatio = require('PixelRatio');
 import React from 'react';
-var ScrollView = require('ScrollView');
-var StyleSheet = require('StyleSheet');
-var Subscribable = require('Subscribable');
-var { Text } = require('F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var AddToScheduleButton = require('./AddToScheduleButton');
-
-var formatDuration = require('./formatDuration');
-var {connect} = require('react-redux');
-var {addToSchedule, removeFromScheduleWithPrompt} = require('../../actions');
+import {
+  Animated,
+  Image,
+  ScrollView,
+  StyleSheet,
+  PixelRatio,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {connect} from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
+import F8Colors from 'F8Colors';
+import F8FriendGoing from 'F8FriendGoing';
+import F8SpeakerProfile from 'F8SpeakerProfile';
+import MapView from '../../common/MapView';
+import Subscribable from 'Subscribable';
+import { Text } from 'F8Text';
+import AddToScheduleButton from './AddToScheduleButton';
+import formatDuration from './formatDuration';
+import {addToSchedule, removeFromScheduleWithPrompt} from '../../actions';
 
 var F8SessionDetails = React.createClass({
   mixins: [Subscribable.Mixin],

@@ -23,7 +23,7 @@
  */
 'use strict';
 
-var { createSelector } = require('reselect');
+import { createSelector } from 'reselect';
 
 import type {Notification} from '../../reducers/notifications';
 

@@ -23,27 +23,26 @@
  */
 'use strict';
 
-const Parse = require('parse/react-native');
-const {AppEventsLogger} = require('react-native-fbsdk');
-const React = require('react');
-const F8SessionDetails = require('F8SessionDetails');
-const F8PageControl = require('F8PageControl');
-const F8Header = require('F8Header');
-const StyleSheet = require('F8StyleSheet');
-const Platform = require('Platform');
-const formatTime = require('./formatTime');
-const Carousel = require('../../common/Carousel');
-
-const {connect} = require('react-redux');
-const {loadFriendsSchedules, shareSession} = require('../../actions');
-
-import type {Dispatch} from '../../actions/types';
-
-const {
+import React from 'react';
+import {
   Text,
   View,
   Navigator,
-} = require('react-native');
+  Platform,
+} from 'react-native';
+import Parse from 'parse/react-native';
+import { AppEventsLogger } from 'react-native-fbsdk';
+import F8SessionDetails from 'F8SessionDetails';
+import F8PageControl from 'F8PageControl';
+import F8Header from 'F8Header';
+import StyleSheet from 'F8StyleSheet';
+import formatTime from './formatTime';
+import Carousel from '../../common/Carousel';
+
+import {connect} from 'react-redux';
+import {loadFriendsSchedules, shareSession} from '../../actions';
+
+import type {Dispatch} from '../../actions/types';
 
 import type {Session} from '../../reducers/sessions';
 

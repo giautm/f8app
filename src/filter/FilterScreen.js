@@ -23,25 +23,25 @@
  */
 'use strict';
 
-const React = require('react');
-const F8Header = require('F8Header');
-const F8Colors = require('F8Colors');
-const TopicItem = require('./TopicItem');
-const F8Button = require('F8Button');
-var ItemsWithSeparator = require('../common/ItemsWithSeparator');
-
-const {
+import React from 'react';
+import {
   Animated,
   View,
   StyleSheet,
   ScrollView,
-} = require('react-native');
+} from 'react-native';
+import F8Header from 'F8Header';
+import F8Colors from 'F8Colors';
+import TopicItem from './TopicItem';
+import F8Button from 'F8Button';
+import ItemsWithSeparator from '../common/ItemsWithSeparator';
 
-const shallowEqual = require('fbjs/lib/shallowEqual');
-const {
+
+import shallowEqual from 'fbjs/lib/shallowEqual';
+import {
   applyTopicsFilter,
-} = require('../actions');
-const {connect} = require('react-redux');
+} from '../actions';
+import {connect} from 'react-redux';
 
 class FilterScreen extends React.Component {
   props: {

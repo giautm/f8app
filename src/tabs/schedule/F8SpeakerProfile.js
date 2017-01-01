@@ -25,12 +25,14 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
 
 var F8SpeakerProfile = React.createClass({
   render: function() {

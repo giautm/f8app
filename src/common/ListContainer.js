@@ -3,20 +3,24 @@
  * @providesModule ListContainer
  */
 'use strict';
-
-var Animated = require('Animated');
-var NativeModules = require('NativeModules');
-var Dimensions = require('Dimensions');
-var F8Header = require('F8Header');
-var F8SegmentedControl = require('F8SegmentedControl');
-var ParallaxBackground = require('ParallaxBackground');
 import React from 'react';
-var ReactNative = require('react-native');
-var StyleSheet = require('F8StyleSheet');
-var View = require('View');
-var { Text } = require('F8Text');
-var ViewPager = require('./ViewPager');
-var Platform = require('Platform');
+import ReactNative, {
+  Animated,
+  Dimensions,
+  NativeModules,
+  Platform,
+  View,
+  StyleSheet,
+  ActivityIndicatorIOS,
+  ProgressBarAndroid,
+} from 'react-native';
+
+
+
+import { Text } from 'F8Text';
+
+
+
 
 import type {Item as HeaderItem} from 'F8Header';
 
@@ -43,14 +47,9 @@ type State = {
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
-var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
-var ProgressBarAndroid = require('ProgressBarAndroid');
 const ActivityIndicator = Platform.OS === 'ios'
   ? ActivityIndicatorIOS
   : ProgressBarAndroid;
-
-var Relay = require('react-relay');
-var RelayRenderer = require('react-relay/lib/RelayRenderer.js');
 
 class MainRoute extends Relay.Route {}
 MainRoute.queries = { viewer: () => Relay.QL`query { viewer }` };
@@ -341,28 +340,32 @@ class ListContainer extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
   },
   headerWrapper: {
-    android: {
-      elevation: 2,
-      backgroundColor: 'transparent',
-      // FIXME: elevation doesn't seem to work without setting border
-      borderRightWidth: 1,
-      marginRight: -1,
-      borderRightColor: 'transparent',
-    }
+    ...Platform.select({
+      android: {
+        elevation: 2,
+        backgroundColor: 'transparent',
+        // FIXME: elevation doesn't seem to work without setting border
+        borderRightWidth: 1,
+        marginRight: -1,
+        borderRightColor: 'transparent',
+      },
+    }),
   },
   listView: {
-    ios: {
-      backgroundColor: 'transparent',
-    },
-    android: {
-      backgroundColor: 'white',
-    }
+    ...Platform.select({
+      android: {
+        backgroundColor: 'white',
+      },
+      ios: {
+        backgroundColor: 'transparent',
+      },
+    }),
   },
   headerTitle: {
     color: 'white',

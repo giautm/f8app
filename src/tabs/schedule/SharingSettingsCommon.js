@@ -23,14 +23,16 @@
  */
 'use strict';
 
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text, Heading1, Paragraph } = require('F8Text');
-var ProfilePicture = require('../../common/ProfilePicture');
-var View = require('View');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { Text, Heading1, Paragraph } from 'F8Text';
+import ProfilePicture from '../../common/ProfilePicture';
 
-var { connect } = require('react-redux');
+import { connect } from 'react-redux';
 
 import type {State as User} from '../../reducers/user';
 

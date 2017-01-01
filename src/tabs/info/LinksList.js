@@ -22,17 +22,18 @@
  * @flow
  */
 'use strict';
-
-var F8Colors = require('F8Colors');
-var Image = require('Image');
-var ItemsWithSeparator = require('../../common/ItemsWithSeparator');
-var Linking = require('Linking');
 import React from 'react';
-var Section = require('./Section');
-var StyleSheet = require('StyleSheet');
-var F8Touchable = require('F8Touchable');
-var { Text } = require('F8Text');
-var View = require('View');
+import {
+  Image,
+  Linking,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import ItemsWithSeparator from '../../common/ItemsWithSeparator';
+import Section from './Section';
+import F8Touchable from 'F8Touchable';
+import { Text } from 'F8Text';
 
 class LinksList extends React.Component {
   props: {

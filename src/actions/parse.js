@@ -23,10 +23,11 @@
  */
 
 'use strict';
+import {
+  InteractionManager,
+} from 'react-native';
 
-const Parse = require('parse/react-native');
-const logError = require('logError');
-const InteractionManager = require('InteractionManager');
+
 
 import type { ThunkAction } from './types';
 

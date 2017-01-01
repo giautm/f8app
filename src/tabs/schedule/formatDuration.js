@@ -23,7 +23,7 @@
  */
 'use strict';
 
-const formatTime = require('./formatTime');
+import formatTime from './formatTime';
 
 function naivePlural(text: string, count: number): string {
   if (count > 1) {

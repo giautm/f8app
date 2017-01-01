@@ -25,27 +25,29 @@
 
 'use strict';
 
-var F8InfoView = require('F8InfoView');
-var F8Colors = require('F8Colors');
-var F8MapView = require('F8MapView');
-var F8NotificationsView = require('F8NotificationsView');
 import React from 'react';
-var Navigator = require('Navigator');
-var F8DrawerLayout = require('F8DrawerLayout');
-var View = require('View');
-var StyleSheet = require('StyleSheet');
-var TouchableOpacity = require('TouchableOpacity');
-var Image = require('Image');
-var { Text } = require('F8Text');
-var MenuItem = require('./MenuItem');
-var LoginButton = require('../common/LoginButton');
-var ProfilePicture = require('../common/ProfilePicture');
-var GeneralScheduleView = require('./schedule/GeneralScheduleView');
-var MyScheduleView = require('./schedule/MyScheduleView');
-var unseenNotificationsCount = require('./notifications/unseenNotificationsCount');
+import {
+  Image,
+  Navigator,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import F8InfoView from 'F8InfoView';
+import F8Colors from 'F8Colors';
+import F8MapView from 'F8MapView';
+import F8NotificationsView from 'F8NotificationsView';
+import F8DrawerLayout from 'F8DrawerLayout';
+import { Text } from 'F8Text';
+import MenuItem from './MenuItem';
+import LoginButton from '../common/LoginButton';
+import ProfilePicture from '../common/ProfilePicture';
+import GeneralScheduleView from './schedule/GeneralScheduleView';
+import MyScheduleView from './schedule/MyScheduleView';
+import unseenNotificationsCount from './notifications/unseenNotificationsCount';
 
-var { switchTab, logOutWithPrompt } = require('../actions');
-var { connect } = require('react-redux');
+import { switchTab, logOutWithPrompt } from '../actions';
+import { connect } from 'react-redux';
 
 import type {Tab} from '../reducers/navigation';
 

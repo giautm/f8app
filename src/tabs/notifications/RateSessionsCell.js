@@ -23,13 +23,15 @@
  */
 'use strict';
 
-var F8Colors = require('F8Colors');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var Image = require('Image');
+import {
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
 
 type Props = {
   numberOfSessions: number;

@@ -13,7 +13,7 @@ import {
   View,
 } from 'react-native';
 
-const resolveAssetSource = require('resolveAssetSource');
+
 
 // TODO: Remove this magic numbers
 const HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;

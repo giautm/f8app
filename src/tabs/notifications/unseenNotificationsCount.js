@@ -23,8 +23,8 @@
  */
 'use strict';
 
-var allNotifications = require('./allNotifications');
-var { createSelector } = require('reselect');
+import allNotifications from './allNotifications';
+import { createSelector } from 'reselect';
 
 import type {Notification, SeenNotifications} from '../../reducers/notifications';
 

@@ -23,17 +23,19 @@
  */
 'use strict';
 
-var Clipboard = require('Clipboard');
-var F8Button = require('F8Button');
-var ToastAndroid = require('ToastAndroid');
-var Platform = require('Platform');
-var ItemsWithSeparator = require('../../common/ItemsWithSeparator');
 import React from 'react';
-var Section = require('./Section');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
-var F8Colors = require('F8Colors');
+import {
+  Clipboard,
+  ToastAndroid,
+  Platform,
+  StyleSheet,
+  View,
+} from 'react-native';
+import F8Button from 'F8Button';
+import { Text } from 'F8Text';
+import F8Colors from 'F8Colors';
+import ItemsWithSeparator from '../../common/ItemsWithSeparator';
+import Section from './Section';
 
 type Props = {
   network: string;

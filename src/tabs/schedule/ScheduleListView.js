@@ -23,13 +23,15 @@
  */
 'use strict';
 
-var F8SessionCell = require('F8SessionCell');
-var FilterSessions = require('./filterSessions');
-var Navigator = require('Navigator');
 import React from 'react';
-var SessionsSectionHeader = require('./SessionsSectionHeader');
-var PureListView = require('../../common/PureListView');
-var groupSessions = require('./groupSessions');
+import {
+  Navigator,
+} from 'react-native';
+import F8SessionCell from 'F8SessionCell';
+import FilterSessions from './filterSessions';
+import SessionsSectionHeader from './SessionsSectionHeader';
+import PureListView from '../../common/PureListView';
+import groupSessions from './groupSessions';
 
 import type {Session} from '../../reducers/sessions';
 import type {SessionsListData} from './groupSessions';

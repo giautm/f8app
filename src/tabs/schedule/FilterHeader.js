@@ -25,15 +25,17 @@
 'use strict';
 
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-const Text = require('Text');
-const TouchableOpacity = require('TouchableOpacity');
-const View = require('View');
-const Image = require('Image');
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 // TODO: Pull redux connection up
-const {connect} = require('react-redux');
-const {clearFilter} = require('../../actions');
+import {connect} from 'react-redux';
+import {clearFilter} from '../../actions';
 
 class FilterHeader extends React.Component {
   render() {

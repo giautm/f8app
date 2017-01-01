@@ -23,17 +23,19 @@
  */
 'use strict';
 
-var F8Colors = require('F8Colors');
-var F8SessionCell = require('F8SessionCell');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var findSessionByURI = require('findSessionByURI');
-var { Text } = require('F8Text');
-var TouchableHighlight = require('TouchableHighlight');
-var View = require('View');
-var moment = require('moment');
+import {
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import F8SessionCell from 'F8SessionCell';
+import findSessionByURI from 'findSessionByURI';
+import moment from 'moment';
 
-var { connect } = require('react-redux');
+import { connect } from 'react-redux';
 
 class NotificationCell extends React.Component {
   render() {

@@ -24,14 +24,16 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
 import React from 'react';
-var Image = require('Image');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var TouchableHighlight = require('TouchableHighlight');
-var View = require('View');
-var ProfilePicture = require('../../common/ProfilePicture');
+import {
+  Image,
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import ProfilePicture from '../../common/ProfilePicture';
 
 import type {FriendsSchedule} from '../../reducers/friendsSchedules';
 

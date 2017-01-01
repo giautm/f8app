@@ -23,14 +23,15 @@
  */
 'use strict';
 
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
-
-var { connect } = require('react-redux');
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { connect } from 'react-redux';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
 
 class FriendsUsingApp extends React.Component {
   props: {

@@ -25,10 +25,12 @@
 'use strict';
 
 import React from 'react';
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-const TouchableOpacity = require('TouchableOpacity');
-const View = require('View');
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { Text } from 'F8Text';
 
 class Header extends React.Component {
   render() {

@@ -15,16 +15,16 @@ import {
 import { connect } from 'react-redux';
 import { switchTab } from './actions';
 
-const FilterScreen = require('./filter/FilterScreen');
-const LoginModal = require('./login/LoginModal');
-const RatingScreen = require('./rating/RatingScreen');
+import FilterScreen from './filter/FilterScreen';
+import LoginModal from './login/LoginModal';
+import RatingScreen from './rating/RatingScreen';
 
-const F8TabsView = require('F8TabsView');
-const FriendsScheduleView = require('./tabs/schedule/FriendsScheduleView');
-const SessionsCarousel = require('./tabs/schedule/SessionsCarousel');
-const SharingSettingsModal = require('./tabs/schedule/SharingSettingsModal');
-const SharingSettingsScreen = require('./tabs/schedule/SharingSettingsScreen');
-const ThirdPartyNotices = require('./tabs/info/ThirdPartyNotices');
+import F8TabsView from 'F8TabsView';
+import FriendsScheduleView from './tabs/schedule/FriendsScheduleView';
+import SessionsCarousel from './tabs/schedule/SessionsCarousel';
+import SharingSettingsModal from './tabs/schedule/SharingSettingsModal';
+import SharingSettingsScreen from './tabs/schedule/SharingSettingsScreen';
+import ThirdPartyNotices from './tabs/info/ThirdPartyNotices';
 
 @connect((store) => ({
   isLoggedIn: store.user.isLoggedIn || store.user.hasSkippedLogin,
@@ -36,7 +36,7 @@ class AppNavigator extends React.Component {
     removeBackButtonListener: React.PropTypes.func,
   };
 
-  _handlers: Array<() => boolean> = [],
+  _handlers: Array<() => boolean> = [];
 
   componentWillUnmount() {
     BackAndroid.removeEventListener('hardwareBackPress', this.handleBackButton);

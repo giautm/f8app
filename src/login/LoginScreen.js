@@ -23,20 +23,22 @@
  */
 'use strict';
 
-var Animated = require('Animated');
-var Dimensions = require('Dimensions');
-var F8Colors = require('F8Colors');
-var Image = require('Image');
 import React from 'react';
-var StatusBar = require('StatusBar');
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var { Text } = require('F8Text');
-var LoginButton = require('../common/LoginButton');
-var TouchableOpacity = require('TouchableOpacity');
+import {
+  Animated,
+  Dimensions,
+  Image,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import F8Colors from 'F8Colors';
+import { Text } from 'F8Text';
+import LoginButton from '../common/LoginButton';
 
-var { skipLogin } = require('../actions');
-var { connect } = require('react-redux');
+import { skipLogin } from '../actions';
+import { connect } from 'react-redux';
 
 class LoginScreen extends React.Component {
   state = {

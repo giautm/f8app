@@ -23,9 +23,10 @@
  */
 
 'use strict';
+import {
+  Platform,
+} from 'react-native';
 
-var Platform = require('Platform');
-var crc32 = require('crc32');
 
 export type Notification = {
   id: string;

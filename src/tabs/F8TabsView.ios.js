@@ -25,20 +25,22 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
-var F8InfoView = require('F8InfoView');
-var F8MapView = require('F8MapView');
-var F8NotificationsView = require('F8NotificationsView');
-var GeneralScheduleView = require('./schedule/GeneralScheduleView');
-var MyScheduleView = require('./schedule/MyScheduleView');
 import React from 'react';
-var TabBarIOS = require('TabBarIOS');
-var TabBarItemIOS = require('TabBarItemIOS');
-var Navigator = require('Navigator');
-var unseenNotificationsCount = require('./notifications/unseenNotificationsCount');
+import {
+  Navigator,
+  TabBarIOS,
+} from 'react-native';
+const TabBarItemIOS = TabBarIOS.Item;
+import F8Colors from 'F8Colors';
+import F8InfoView from 'F8InfoView';
+import F8MapView from 'F8MapView';
+import F8NotificationsView from 'F8NotificationsView';
+import GeneralScheduleView from './schedule/GeneralScheduleView';
+import MyScheduleView from './schedule/MyScheduleView';
+import unseenNotificationsCount from './notifications/unseenNotificationsCount';
 
-var { switchTab } = require('../actions');
-var { connect } = require('react-redux');
+import { switchTab } from '../actions';
+import { connect } from 'react-redux';
 
 import type {Tab, Day} from '../reducers/navigation';
 

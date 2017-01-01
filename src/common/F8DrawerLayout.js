@@ -22,7 +22,7 @@ class DrawerLayout extends React.Component {
     this.context.removeBackButtonListener(this.handleBackButton);
   }
 
-  handleBackButton = () => : boolean {
+  handleBackButton = (): boolean => {
     this.closeDrawer();
     return true;
   };
