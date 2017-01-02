@@ -58,6 +58,7 @@ import com.android.build.OutputFile
  */
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -145,7 +146,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:25.1.0"
     compile "com.facebook.react:react-native:0+" // From node_modules
     compile "com.facebook.android:facebook-android-sdk:4.8.1"
-    compile project(":react-native-linear-gradient")
+    compile project(':react-native-linear-gradient')
     compile project(':react-native-code-push')
     compile project(':react-native-push-notification')
     compile project(':react-native-share')
