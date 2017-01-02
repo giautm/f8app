@@ -26,7 +26,8 @@
 import {
   InteractionManager,
 } from 'react-native';
-
+import Parse from 'parse/react-native';
+import logError from 'logError';
 
 
 import type { ThunkAction } from './types';
@@ -49,18 +50,13 @@ function loadParseQuery(type: string, query: Parse.Query): ThunkAction {
   };
 }
 
-module.exports = {
-  loadSessions: (): ThunkAction =>
-    loadParseQuery(
-      'LOADED_SESSIONS',
-      new Parse.Query('Agenda')
-        .include('speakers')
-        .ascending('startTime')
-    ),
+export const loadSessions = (): ThunkAction =>
+  loadParseQuery('LOADED_SESSIONS', new Parse.Query('Agenda')
+    .include('speakers').ascending('startTime')
+);
 
-  loadMaps: (): ThunkAction =>
-    loadParseQuery('LOADED_MAPS', new Parse.Query(Maps)),
+export const loadMaps = (): ThunkAction =>
+  loadParseQuery('LOADED_MAPS', new Parse.Query(Maps))
 
-  loadNotifications: (): ThunkAction =>
-    loadParseQuery('LOADED_NOTIFICATIONS', new Parse.Query(Notification)),
-};
+export const loadNotifications = (): ThunkAction =>
+  loadParseQuery('LOADED_NOTIFICATIONS', new Parse.Query(Notification))

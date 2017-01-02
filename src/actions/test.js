@@ -27,7 +27,8 @@ import {
   ActionSheetIOS,
   Platform,
 } from 'react-native';
-
+import Parse from 'parse/react-native';
+import SendIntentAndroid from 'react-native-send-intent';
 import {version} from '../env';
 
 import type { Action, ThunkAction } from './types';
@@ -74,7 +75,7 @@ function testExportAppState(): ThunkAction {
   };
 }
 
-const TEST_MENU = {
+export const TEST_MENU = {
   'Request a push notification': testPlainPush,
   'Push with link': testLinkPush,
   'Push with session': testSessionPush,
@@ -82,5 +83,3 @@ const TEST_MENU = {
   'Reset NUXes': testResetNuxes,
   'Get app state': testExportAppState,
 };
-
-module.exports = {TEST_MENU};

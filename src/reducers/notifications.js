@@ -26,7 +26,7 @@
 import {
   Platform,
 } from 'react-native';
-
+import crc32 from 'crc32';
 
 export type Notification = {
   id: string;

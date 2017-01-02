@@ -4,7 +4,7 @@
 
 'use strict';
 
-
+import createParseReducer from './createParseReducer';
 
 export type Map = {
   id: string;

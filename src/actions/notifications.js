@@ -55,7 +55,7 @@ function normalizeData(s: string | Object): Object {
   }
 }
 
-async function storeDeviceToken(deviceToken: string): Promise<Action> {
+export async function storeDeviceToken(deviceToken: string): Promise<Action> {
   console.log('Got device token', deviceToken);
   const pushType = Platform.OS === 'android' ? 'gcm' : undefined;
   await updateInstallation({
@@ -68,19 +68,19 @@ async function storeDeviceToken(deviceToken: string): Promise<Action> {
   };
 }
 
-function turnOnPushNotifications(): Action {
+export function turnOnPushNotifications(): Action {
   return {
     type: 'TURNED_ON_PUSH_NOTIFICATIONS',
   };
 }
 
-function skipPushNotifications(): Action {
+export function skipPushNotifications(): Action {
   return {
     type: 'SKIPPED_PUSH_NOTIFICATIONS',
   };
 }
 
-function receivePushNotification(notification: PushNotification): ThunkAction {
+export function receivePushNotification(notification: PushNotification): ThunkAction {
   return (dispatch) => {
     const {foreground, message } = notification;
     const data = normalizeData(notification.data);
@@ -114,16 +114,8 @@ function receivePushNotification(notification: PushNotification): ThunkAction {
   };
 }
 
-function markAllNotificationsAsSeen(): Action {
+export function markAllNotificationsAsSeen(): Action {
   return {
     type: 'SEEN_ALL_NOTIFICATIONS',
   };
 }
-
-module.exports = {
-  turnOnPushNotifications,
-  storeDeviceToken,
-  skipPushNotifications,
-  receivePushNotification,
-  markAllNotificationsAsSeen,
-};

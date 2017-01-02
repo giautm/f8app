@@ -196,7 +196,7 @@ var styles = StyleSheet.create({
 
 export default AddToScheduleButton;
 // $FlowFixMe
-module.exports.__cards__ = (define) => {
+export const __cards__ = (define) => {
   let f;
   setInterval(() => f && f(), 1000);
 

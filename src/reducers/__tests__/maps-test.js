@@ -24,10 +24,10 @@
 
 'use strict';
 
-jest.autoMockOff();
+jest.disableAutomock();
 
-
-
+import Parse from 'parse';
+import maps = from '../maps';
 
 describe('maps reducer', () => {
 

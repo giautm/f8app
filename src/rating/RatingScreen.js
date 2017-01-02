@@ -16,8 +16,8 @@ import F8Header from 'F8Header';
 import F8PageControl from 'F8PageControl';
 
 import Carousel from '../common/Carousel';
+import BackIcon from '../common/BackButtonIcon';
 import RatingCard from './RatingCard';
-
 import { submitSurveyAnswers } from '../actions';
 import type { Dispatch } from '../actions/types';
 import type { Session } from '../reducers/sessions';
@@ -95,7 +95,7 @@ class RatingScreen extends React.Component {
           leftItem={{
             layout: 'icon',
             title: 'Close',
-            icon: require('../common/BackButtonIcon'),
+            icon: BackIcon,
             onPress: this.dismiss,
           }}>
           <View style={styles.headerContent}>

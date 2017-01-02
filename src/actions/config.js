@@ -27,10 +27,10 @@
 import {
   InteractionManager,
 } from 'react-native';
-
+import Parse from 'parse/react-native';
 import type { Action } from './types';
 
-async function loadConfig(): Promise<Action> {
+export async function loadConfig(): Promise<Action> {
   const config = await Parse.Config.get();
   await InteractionManager.runAfterInteractions();
   return {
@@ -38,5 +38,3 @@ async function loadConfig(): Promise<Action> {
     config,
   };
 }
-
-module.exports = {loadConfig};

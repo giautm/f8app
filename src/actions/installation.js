@@ -26,9 +26,9 @@
 import {
   Platform,
 } from 'react-native';
+import Parse from 'parse/react-native';
 
-
-async function currentInstallation(): Promise<Parse.Installation> {
+export async function currentInstallation(): Promise<Parse.Installation> {
   const installationId = await Parse._getInstallationId();
   return new Parse.Installation({
     installationId,
@@ -39,9 +39,7 @@ async function currentInstallation(): Promise<Parse.Installation> {
   });
 }
 
-async function updateInstallation(updates: Object = {}): Promise<void> {
+export async function updateInstallation(updates: Object = {}): Promise<void> {
   const installation = await currentInstallation();
   await installation.save(updates);
 }
-
-module.exports = { currentInstallation, updateInstallation };

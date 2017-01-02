@@ -12,7 +12,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
 
 // TODO: Remove this magic numbers

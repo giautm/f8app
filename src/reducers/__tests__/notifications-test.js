@@ -24,11 +24,11 @@
 
 'use strict';
 
+import Parse from 'parse';
 
-
-jest.dontMock('../notifications');
-jest.dontMock('crc32');
-
+jest.unmock('../notifications');
+jest.unmock('crc32');
+import notifications from '../notifications';
 
 const emptyAction: any = {};
 const empty = {server: [], push: [], enabled: null, registered: false, seen: {}};

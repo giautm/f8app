@@ -24,7 +24,7 @@
 
 'use strict';
 
-
+import createParseReducer from './createParseReducer';
 
 export type Speaker = {
   id: string;

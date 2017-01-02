@@ -52,6 +52,11 @@ import { connect } from 'react-redux';
 import type {Tab} from '../reducers/navigation';
 
 class F8TabsView extends React.Component {
+  static childContextTypes = {
+    openDrawer: React.PropTypes.func,
+    hasUnreadNotifications: React.PropTypes.number,
+  };
+
   props: {
     tab: Tab;
     onTabSelect: (tab: Tab) => void;
@@ -69,7 +74,7 @@ class F8TabsView extends React.Component {
   getChildContext() {
     return {
       openDrawer: this.openDrawer,
-      hasUnreadNotifications: this.props.notificationsBadge > 0,
+      hasUnreadNotifications: (this.props.notificationsBadge > 0),
     };
   }
 
@@ -223,10 +228,7 @@ class F8TabsView extends React.Component {
   }
 }
 
-F8TabsView.childContextTypes = {
-  openDrawer: React.PropTypes.func,
-  hasUnreadNotifications: React.PropTypes.number,
-};
+
 
 function select(store) {
   return {

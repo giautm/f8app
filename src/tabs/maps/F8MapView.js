@@ -124,12 +124,14 @@ var styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: 'white',
-    ios: {
-      bottom: 49,
-    },
-    android: {
-      bottom: 0,
-    },
+    ...Platform.select({
+      android: {
+        bottom: 0,
+      },
+      ios: {
+        bottom: 49,
+      },
+    }),
   },
 });
 

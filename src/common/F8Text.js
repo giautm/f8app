@@ -31,6 +31,7 @@ import ReactNative, {
   StyleSheet,
 } from 'react-native';
 import F8Colors from 'F8Colors';
+import { fontFamily } from '../env';
 
 export function Text({style, ...props}: Object): ReactElement {
   return <ReactNative.Text style={[styles.font, style]} {...props} />;
@@ -52,7 +53,7 @@ function normalize(size: number): number {
 
 const styles = StyleSheet.create({
   font: {
-    fontFamily: require('../env').fontFamily,
+    fontFamily,
   },
   h1: {
     fontSize: normalize(24),

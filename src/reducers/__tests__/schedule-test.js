@@ -24,8 +24,8 @@
 
 'use strict';
 
-jest.dontMock('../schedule');
-
+jest.unmock('../schedule');
+import schedule from '../schedule';
 
 describe('schedule reducer', () => {
 

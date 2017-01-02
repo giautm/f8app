@@ -29,16 +29,17 @@ import {
   InteractionManager,
   Platform,
 } from 'react-native';
-
-import {AppEventsLogger} from 'react-native-fbsdk';
+import Parse from 'parse/react-native';
+import Share from 'react-native-share';
+import { AppEventsLogger } from 'react-native-fbsdk';
+import { currentInstallation, updateInstallation } from './installation';
 
 const Agenda = Parse.Object.extend('Agenda');
-import {currentInstallation, updateInstallation} from './installation';
 
 import type { ThunkAction, PromiseAction, Dispatch } from './types';
 import type { Session } from '../reducers/sessions';
 
-function addToSchedule(id: string): ThunkAction {
+export function addToSchedule(id: string): ThunkAction {
   return (dispatch: Dispatch) => {
     if (Parse.User.current()) {
       Parse.User.current().relation('mySchedule').add(new Agenda({id}));
@@ -55,7 +56,7 @@ function addToSchedule(id: string): ThunkAction {
   };
 }
 
-function removeFromSchedule(id: string): ThunkAction {
+export function removeFromSchedule(id: string): ThunkAction {
   return (dispatch: Dispatch) => {
     if (Parse.User.current()) {
       Parse.User.current().relation('mySchedule').remove(new Agenda({id}));
@@ -72,7 +73,7 @@ function removeFromSchedule(id: string): ThunkAction {
   };
 }
 
-function removeFromScheduleWithPrompt(session: Session): ThunkAction {
+export function removeFromScheduleWithPrompt(session: Session): ThunkAction {
   return (dispatch) => {
     if (Platform.OS === 'ios') {
       ActionSheetIOS.showActionSheetWithOptions({
@@ -100,7 +101,7 @@ function removeFromScheduleWithPrompt(session: Session): ThunkAction {
   };
 }
 
-async function restoreSchedule(): PromiseAction {
+export async function restoreSchedule(): PromiseAction {
   const list = await Parse.User.current().relation('mySchedule').query().find();
   const channels = list.map(({id}) => `session_${id}`);
   updateInstallation({channels});
@@ -111,7 +112,7 @@ async function restoreSchedule(): PromiseAction {
   };
 }
 
-async function loadFriendsSchedules(): PromiseAction {
+export async function loadFriendsSchedules(): PromiseAction {
   const list = await Parse.Cloud.run('friends');
   await InteractionManager.runAfterInteractions();
   return {
@@ -120,7 +121,7 @@ async function loadFriendsSchedules(): PromiseAction {
   };
 }
 
-function setSharingEnabled(enabled: boolean): ThunkAction {
+export function setSharingEnabled(enabled: boolean): ThunkAction {
   return (dispatch) => {
     dispatch({
       type: 'SET_SHARING',
@@ -131,7 +132,7 @@ function setSharingEnabled(enabled: boolean): ThunkAction {
   };
 }
 
-function shareSession(session: Session): ThunkAction {
+export function shareSession(session: Session): ThunkAction {
   return (dispatch, getState) => {
     const {sessionURLTemplate} = getState().config;
     const url = sessionURLTemplate
@@ -161,13 +162,3 @@ function logShare(id, completed, activity) {
     activity: activity || '?'
   });
 }
-
-module.exports = {
-  shareSession,
-  addToSchedule,
-  removeFromSchedule,
-  restoreSchedule,
-  loadFriendsSchedules,
-  setSharingEnabled,
-  removeFromScheduleWithPrompt,
-};

@@ -11,16 +11,17 @@ import ReactNative, {
   Platform,
   View,
   StyleSheet,
-  ActivityIndicatorIOS,
+  ActivityIndicator as ActivityIndicatorIOS,
   ProgressBarAndroid,
 } from 'react-native';
-
-
+import Relay from 'react-relay';
+import F8Header from 'F8Header';
+import F8SegmentedControl from 'F8SegmentedControl';
+import ParallaxBackground from 'ParallaxBackground';
+import ViewPager from './ViewPager';
+import RelayRenderer from 'react-relay/lib/RelayRenderer.js';
 
 import { Text } from 'F8Text';
-
-
-
 
 import type {Item as HeaderItem} from 'F8Header';
 
@@ -98,7 +99,7 @@ class ListContainer extends React.Component {
 
   static contextTypes = {
     openDrawer: React.PropTypes.func,
-    hasUnreadNotifications: React.PropTypes.number,
+    hasUnreadNotifications: React.PropTypes.boolean,
   };
 
   constructor(props: Props) {

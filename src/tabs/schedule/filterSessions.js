@@ -50,4 +50,4 @@ function bySchedule(sessions: Array<Session>, schedule: StringMap): Array<Sessio
   );
 }
 
-module.exports = {byDay, byTopics, bySchedule};
+export default {byDay, byTopics, bySchedule};

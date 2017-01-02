@@ -52,7 +52,7 @@ class ParseFileMock {
   }
 }
 
-module.exports = {
+export default {
   Object: ParseObjectMock,
   File: ParseFileMock,
 };

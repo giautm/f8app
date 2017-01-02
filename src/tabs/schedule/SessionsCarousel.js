@@ -29,15 +29,16 @@ import {
   View,
   Navigator,
   Platform,
+  StyleSheet,
 } from 'react-native';
 import Parse from 'parse/react-native';
 import { AppEventsLogger } from 'react-native-fbsdk';
 import F8SessionDetails from 'F8SessionDetails';
 import F8PageControl from 'F8PageControl';
 import F8Header from 'F8Header';
-import StyleSheet from 'F8StyleSheet';
 import formatTime from './formatTime';
 import Carousel from '../../common/Carousel';
+import BackIcon from '../../common/BackButtonIcon';
 
 import {connect} from 'react-redux';
 import {loadFriendsSchedules, shareSession} from '../../actions';
@@ -134,7 +135,7 @@ class SessionsCarusel extends React.Component {
           leftItem={{
             layout: 'icon',
             title: 'Close',
-            icon: require('../../common/BackButtonIcon'),
+            icon: BackIcon,
             onPress: this.dismiss,
           }}
           rightItem={rightItem}>
@@ -197,53 +198,65 @@ class SessionsCarusel extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   header: {
-    android: {
-      backgroundColor: '#5597B8',
-    },
+    ...Platform.select({
+      android: {
+        backgroundColor: '#5597B8',
+      },
+    }),
   },
   headerContent: {
-    android: {
-      flex: 1,
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-    },
-    ios: {
-      height: 65,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    ...Platform.select({
+      android: {
+        flex: 1,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+      },
+      ios: {
+        height: 65,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    }),
   },
   title: {
     color: 'white',
     fontSize: 12,
-    ios: {
-      textAlign: 'center',
-    },
+    ...Platform.select({
+      ios: {
+        textAlign: 'center',
+      },
+    }),
   },
   day: {
-    ios: {
-      fontWeight: 'bold',
-    },
-    android: {
-      fontSize: 9,
-    },
+    ...Platform.select({
+      android: {
+        fontSize: 9,
+      },
+      ios: {
+        fontWeight: 'bold',
+      },
+    }),
   },
   time: {
-    android: {
-      fontWeight: 'bold',
-      fontSize: 17,
-    }
+    ...Platform.select({
+      android: {
+        fontWeight: 'bold',
+        fontSize: 17,
+      },
+    }),
   },
   card: {
-    ios: {
-      borderRadius: 2,
-      marginHorizontal: 3,
-    },
+    ...Platform.select({
+      ios: {
+        borderRadius: 2,
+        marginHorizontal: 3,
+      },
+    }),
   },
 });
 

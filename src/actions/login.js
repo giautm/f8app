@@ -30,10 +30,11 @@ import {
   Alert,
   Platform,
 } from 'react-native';
-
-import {restoreSchedule, loadFriendsSchedules} from './schedule';
-import {updateInstallation} from './installation';
-import {loadSurveys} from './surveys';
+import Parse from 'parse/react-native';
+import FacebookSDK from 'FacebookSDK';
+import { loadFriendsSchedules, restoreSchedule } from './schedule';
+import { updateInstallation } from './installation';
+import { loadSurveys } from './surveys';
 
 import type { Action, ThunkAction } from './types';
 
@@ -85,7 +86,7 @@ async function _logInWithFacebook(source: ?string): Promise<Array<Action>> {
   ]);
 }
 
-function logInWithFacebook(source: ?string): ThunkAction {
+export function logInWithFacebook(source: ?string): ThunkAction {
   return (dispatch) => {
     const login = _logInWithFacebook(source);
 
@@ -101,13 +102,13 @@ function logInWithFacebook(source: ?string): ThunkAction {
   };
 }
 
-function skipLogin(): Action {
+export function skipLogin(): Action {
   return {
     type: 'SKIPPED_LOGIN',
   };
 }
 
-function logOut(): ThunkAction {
+export function logOut(): ThunkAction {
   return (dispatch) => {
     Parse.User.logOut();
     FacebookSDK.logout();
@@ -120,7 +121,7 @@ function logOut(): ThunkAction {
   };
 }
 
-function logOutWithPrompt(): ThunkAction {
+export function logOutWithPrompt(): ThunkAction {
   return (dispatch, getState) => {
     let name = getState().user.name || 'there';
 
@@ -150,5 +151,3 @@ function logOutWithPrompt(): ThunkAction {
     }
   };
 }
-
-module.exports = {logInWithFacebook, skipLogin, logOut, logOutWithPrompt};
