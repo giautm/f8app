@@ -30,6 +30,7 @@
     "react-native-code-push": "1.16.1-beta",
     "react-native-fbsdk": "0.4.0",
     "react-native-linear-gradient": "1.6.2",
+    "react-native-lock": "0.4.0",
     "react-native-push-notification": "2.2.1",
     "react-native-send-intent": "1.0.14",
     "react-native-share": "1.0.17",

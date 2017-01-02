@@ -4789,6 +4789,11 @@
         }
       }
     },
+    "react-native-auth0": {
+      "version": "0.0.1",
+      "from": "react-native-auth0@>=0.0.1 <0.0.2",
+      "resolved": "https://registry.npmjs.org/react-native-auth0/-/react-native-auth0-0.0.1.tgz"
+    },
     "react-native-code-push": {
       "version": "1.16.1-beta",
       "from": "react-native-code-push@latest",
@@ -4820,6 +4825,11 @@
       "version": "1.6.2",
       "from": "react-native-linear-gradient@latest",
       "resolved": "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-1.6.2.tgz"
+    },
+    "react-native-lock": {
+      "version": "0.4.0",
+      "from": "react-native-lock@latest",
+      "resolved": "https://registry.npmjs.org/react-native-lock/-/react-native-lock-0.4.0.tgz"
     },
     "react-native-push-notification": {
       "version": "2.2.1",

@@ -9,6 +9,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
+import com.auth0.lock.react.LockReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -51,6 +52,7 @@ class AppNativeHost extends ReactNativeHost implements ReactInstanceHolder {
     protected List<ReactPackage> getPackages() {
         return Arrays.asList(
                 new MainReactPackage(),
+            new LockReactPackage(),
                 new FBSDKPackage(mCallbackManager),
                 new LinearGradientPackage(),
                 new RNSharePackage(),
