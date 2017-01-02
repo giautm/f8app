@@ -14,6 +14,9 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import { serverURL } from './env';
 
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+
 function setup(): ReactClass<{}> {
   console.disableYellowBox = true;
   Parse.initialize('oss-f8-app-2016');
@@ -28,6 +31,28 @@ function setup(): ReactClass<{}> {
     })
   );
 
+  const networkInterface = createNetworkInterface({
+    uri: `${serverURL}/graphql`,
+  });
+
+  networkInterface.use([{
+    applyMiddleware(req, next) {
+      if (!req.options.headers) {
+        req.options.headers = {};  // Create the header object if needed.
+      }
+
+      // get the authentication token from local storage if it exists
+      const token = localStorage.getItem('token');
+      req.options.headers.authorization = token ? `Bearer ${token}` : null;
+      next();
+    }
+  }]);
+
+  // Create the client as outlined above
+  const client = new ApolloClient({
+    networkInterface,
+  });
+
   class Root extends React.Component {
     state: {
       isLoading: boolean;
@@ -38,18 +63,19 @@ function setup(): ReactClass<{}> {
       super();
       this.state = {
         isLoading: true,
-        store: configureStore(() => this.setState({ isLoading: false })),
+        store: configureStore(client, () => this.setState({ isLoading: false })),
       };
     }
+
     render() {
       if (this.state.isLoading) {
         return null;
       }
 
       return (
-        <Provider store={this.state.store}>
+        <ApolloProvider client={client} store={this.state.store}>
           <AppRoot />
-        </Provider>
+        </ApolloProvider>
       );
     }
   }

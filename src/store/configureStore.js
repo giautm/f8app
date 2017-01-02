@@ -25,11 +25,14 @@ const logger = createLogger({
   duration: true,
 });
 
-const createF8Store = applyMiddleware(thunk, promise, array, analytics, logger)(createStore);
+const createF8Store = (apollo) =>
+  applyMiddleware(apollo, thunk, promise, array, analytics, logger)(createStore);
 
-function configureStore(onComplete: ?() => void) {
+function configureStore(apolloClient, onComplete: ?() => void) {
   // TODO(frantic): reconsider usage of redux-persist, maybe add cache breaker
-  const store = autoRehydrate()(createF8Store)(reducers);
+  const store = autoRehydrate()(createF8Store(apolloClient.middleware()))(reducers({
+    apollo: apolloClient.reducer(),
+  }));
   persistStore(store, { storage: AsyncStorage }, onComplete);
   if (isDebuggingInChrome) {
     window.store = store;

@@ -6,7 +6,7 @@
 
 import { combineReducers } from 'redux';
 
-export default combineReducers({
+export default (rootReducers) => combineReducers({
   config: require('./config').default,
   notifications: require('./notifications').default,
   maps: require('./maps').default,
@@ -18,4 +18,5 @@ export default combineReducers({
   navigation: require('./navigation').default,
   friendsSchedules: require('./friendsSchedules').default,
   surveys: require('./surveys').default,
+  ...rootReducers,
 });
